@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML入门指南 - 从零开始学习网页制作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .tag {
+            color: #f92672;
+        }
+        
+        .attribute {
+            color: #a6e22e;
+        }
+        
+        .value {
+            color: #e6db74;
+        }
+        
+        .example-box {
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            background: #f9f9f9;
+        }
+        
+        .try-it {
+            background: #e8f4fd;
+            border-left: 4px solid #2575fc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .try-it h3 {
+            color: #2575fc;
+            margin-bottom: 10px;
+        }
+        
+        .practice-area {
+            background: #f0f8ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .practice-area textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+        }
+        
+        .practice-area button {
+            background: #2575fc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .practice-area button:hover {
+            background: #1a5fd8;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .tip {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip h3 {
+            color: #e0a800;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML入门指南</h1>
+            <p class="subtitle">从零开始学习网页制作，掌握HTML基础知识</p>
+        </header>
+        
+        <div class="content-grid">
+            <div class="card">
+                <h2>什么是HTML？</h2>
+                <p>HTML（超文本标记语言）是用于创建网页的标准标记语言。它描述了网页的结构，由一系列元素组成，这些元素告诉浏览器如何显示内容。</p>
+                
+                <div class="tip">
+                    <h3>💡 小贴士</h3>
+                    <p>HTML不是编程语言，而是一种标记语言，用于定义内容的结构。</p>
+                </div>
+                
+                <h2>HTML文档结构</h2>
+                <p>每个HTML文档都遵循基本结构：</p>
+                <div class="code-block">
+                    <span class="tag">&lt;!DOCTYPE html&gt;</span><br>
+                    <span class="tag">&lt;html&gt;</span><br>
+                    &nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>页面标题<span class="tag">&lt;/title&gt;</span><br>
+                    &nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+                    &nbsp;&nbsp;<span class="tag">&lt;body&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>我的第一个网页<span class="tag">&lt;/h1&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>这是一个段落。<span class="tag">&lt;/p&gt;</span><br>
+                    &nbsp;&nbsp;<span class="tag">&lt;/body&gt;</span><br>
+                    <span class="tag">&lt;/html&gt;</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>常用HTML标签</h2>
+                <p>以下是一些最常用的HTML标签：</p>
+                
+                <div class="example-box">
+                    <h3>标题标签</h3>
+                    <p><code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 定义不同级别的标题</p>
+                    
+                    <h3>段落标签</h3>
+                    <p><code>&lt;p&gt;</code> 定义一个段落</p>
+                    
+                    <h3>链接标签</h3>
+                    <p><code>&lt;a href="URL"&gt;</code>链接文本<code>&lt;/a&gt;</code> 创建超链接</p>
+                    
+                    <h3>图像标签</h3>
+                    <p><code>&lt;img src="image.jpg" alt="描述"&gt;</code> 插入图像</p>
+                    
+                    <h3>列表标签</h3>
+                    <p><code>&lt;ul&gt;</code> 无序列表，<code>&lt;ol&gt;</code> 有序列表，<code>&lt;li&gt;</code> 列表项</p>
+                </div>
+                
+                <div class="try-it">
+                    <h3>动手试试</h3>
+                    <p>在下面的练习区域，尝试创建一个包含标题、段落和链接的简单HTML页面。</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>HTML属性</h2>
+                <p>HTML元素可以拥有属性，属性提供有关元素的额外信息。</p>
+                
+                <div class="code-block">
+                    <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://www.example.com"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span>访问示例网站<span class="tag">&lt;/a&gt;</span><br><br>
+                    <span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"photo.jpg"</span> <span class="attribute">alt</span>=<span class="value">"照片描述"</span> <span class="attribute">width</span>=<span class="value">"300"</span><span class="tag">&gt;</span><br><br>
+                    <span class="tag">&lt;p</span> <span class="attribute">class</span>=<span class="value">"intro"</span> <span class="attribute">id</span>=<span class="value">"first-paragraph"</span><span class="tag">&gt;</span>这是一个段落<span class="tag">&lt;/p&gt;</span>
+                </div>
+                
+                <p>常用属性：</p>
+                <ul>
+                    <li><strong>id</strong> - 为元素指定唯一标识</li>
+                    <li><strong>class</strong> - 为元素指定一个或多个类名</li>
+                    <li><strong>style</strong> - 指定元素的内联样式</li>
+                    <li><strong>src</strong> - 指定外部资源的路径（如图像）</li>
+                    <li><strong>href</strong> - 指定链接的目标URL</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>创建你的第一个网页</h2>
+                <p>按照以下步骤创建你的第一个HTML页面：</p>
+                
+                <ol>
+                    <li>打开文本编辑器（如记事本、VS Code等）</li>
+                    <li>输入基本的HTML结构</li>
+                    <li>添加一些内容（标题、段落等）</li>
+                    <li>将文件保存为 <strong>index.html</strong></li>
+                    <li>在浏览器中打开该文件查看结果</li>
+                </ol>
+                
+                <div class="practice-area">
+                    <h3>练习区域</h3>
+                    <p>在下面的文本框中尝试编写HTML代码：</p>
+                    <textarea id="html-code" placeholder="在这里输入HTML代码...">&lt;h1&gt;欢迎来到我的网站&lt;/h1&gt;
+&lt;p&gt;这是我的第一个网页。&lt;/p&gt;
+&lt;a href="#"&gt;点击这里&lt;/a&gt;</textarea>
+                    <button onclick="runCode()">运行代码</button>
+                    
+                    <h4>预览：</h4>
+                    <div id="preview" class="example-box">
+                        <!-- 预览内容将在这里显示 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 HTML学习指南 | 适合初学者的HTML教程</p>
+            <p>记住：实践是学习HTML的最佳方式！不断尝试和修改代码。</p>
+        </footer>
+    </div>
+
+    <script>
+        function runCode() {
+            const code = document.getElementById('html-code').value;
+            document.getElementById('preview').innerHTML = code;
+        }
+        
+        // 初始化预览
+        window.onload = function() {
+            runCode();
+        };
+    </script>
+</body>
+</html>
